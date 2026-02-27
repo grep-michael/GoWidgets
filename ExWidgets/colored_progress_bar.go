@@ -116,12 +116,14 @@ func NewColoredProgressBarWithData(foreground_color, background_color color.Colo
 }
 
 func (p *ColoredProgressBar) SetBackgroundColor(color color.Color) {
-	p.renderer.Background.FillColor = color
-	p.renderer.Background.Refresh()
+	p.BackgroundColor = color
+	p.renderer.background_color = color
+	p.Refresh()
 }
 func (p *ColoredProgressBar) SetForegroundColor(color color.Color) {
-	p.renderer.Foreground.FillColor = color
-	p.renderer.Foreground.Refresh()
+	p.ForegroundColor = color
+	p.renderer.foreground_color = color
+	p.Refresh()
 }
 func (p *ColoredProgressBar) updateFromData(data binding.DataItem) {
 	if data == nil {
